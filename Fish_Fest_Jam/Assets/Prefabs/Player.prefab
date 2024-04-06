@@ -122,9 +122,13 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 888d6b64-2fd4-4e8b-8101-ddc86691e835
     m_ActionName: FishJam/Key4[/Keyboard/r]
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Keyboard
-  m_DefaultActionMap: Badminton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aa399bce-e5e1-4ae9-b1f6-d77af1279417
+    m_ActionName: Main Menu/Join1[/Keyboard/1]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: KeyboardLeft
+  m_DefaultActionMap: 32644a32-7b90-4437-ab5f-5501c589e8fe
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!212 &2085654537140126648

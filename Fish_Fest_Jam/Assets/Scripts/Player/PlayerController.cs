@@ -9,14 +9,19 @@ public class PlayerController : MonoBehaviour
 {
     #region Controls & Movement
     private PlayerControls playerControls { get; set; }
-    public float Speed { get; set; } = 1.0f;
-    float SpeedX, SpeedY;
+    public float Speed { get; set; } = 2.0f;
     [field: SerializeField] public Rigidbody2D rigidBody { get; set; }
+    float SpeedX;
     #endregion
+
+    #region Local Multiplayer
+    #endregion
+    private PlayerInput playerInput { get; set; }
 
     private void Awake()
     {
         playerControls ??= new PlayerControls();
+        
     }
 
     private void Start()
@@ -46,7 +51,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SubscribeInputs()
-    {//Make sure i'm using action maps properly
+    {
         playerControls ??= new PlayerControls();
         playerControls.Badminton.Move.performed += MoveInput;
         playerControls.Badminton.Move.canceled += MoveInput;
@@ -75,11 +80,30 @@ public class PlayerController : MonoBehaviour
         playerInput.SwitchCurrentActionMap();
     }*/
 
-    public void MoveInput(InputAction.CallbackContext context)
+    public void OnPlayerJoined(PlayerInput playerInput)
+    {   //player join on 1
+        playerControls.MainMenu.Join1.started += JoinInput;
+    }
+    /*public bool SwitchCurrentControlScheme(params InputDevice[] devices)
     {
+
+    }*/
+
+    public void JoinInput(InputAction.CallbackContext context)
+    {
+        Debug.Log("Player has joined");
+    }
+    /*public void UnjoinInput() 
+    {
+        playerControls.MainMenu.Join1.started -= JoinInput;
+    }*/
+
+    public void MoveInput(InputAction.CallbackContext context)
+    {//decided to change movement to just along the x axis
+        Vector2 move = context.ReadValue<Vector2>();
         SpeedX = Input.GetAxisRaw("Horizontal") * Speed;
-        SpeedY = Input.GetAxisRaw("Vertical") * Speed;
-        rigidBody.velocity = new Vector2(SpeedX, SpeedY);
+        //SpeedY = Input.GetAxisRaw("Vertical") * Speed;
+        rigidBody.velocity = new Vector2(SpeedX, 0);
         
         Debug.Log("Move");
     }
