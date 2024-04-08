@@ -44,13 +44,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bfaf3c0-fe56-4af3-be1b-258513c2bb36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""9154bf02-5a7c-4104-9ff1-b72312b1e816"",
-                    ""path"": ""Keyboard/Spacebar"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard_P1"",
@@ -178,6 +187,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9ad4b2c-d456-4c26-a3c9-1e54694b94e3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P1"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aaddfb48-61e7-4305-bcf7-7d152fa54987"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -299,6 +330,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Badminton = asset.FindActionMap("Badminton", throwIfNotFound: true);
         m_Badminton_Hit = m_Badminton.FindAction("Hit", throwIfNotFound: true);
         m_Badminton_Move = m_Badminton.FindAction("Move", throwIfNotFound: true);
+        m_Badminton_Pause = m_Badminton.FindAction("Pause", throwIfNotFound: true);
         // FishJam
         m_FishJam = asset.FindActionMap("FishJam", throwIfNotFound: true);
         m_FishJam_Key1 = m_FishJam.FindAction("Key1", throwIfNotFound: true);
@@ -368,12 +400,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IBadmintonActions> m_BadmintonActionsCallbackInterfaces = new List<IBadmintonActions>();
     private readonly InputAction m_Badminton_Hit;
     private readonly InputAction m_Badminton_Move;
+    private readonly InputAction m_Badminton_Pause;
     public struct BadmintonActions
     {
         private @PlayerControls m_Wrapper;
         public BadmintonActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Hit => m_Wrapper.m_Badminton_Hit;
         public InputAction @Move => m_Wrapper.m_Badminton_Move;
+        public InputAction @Pause => m_Wrapper.m_Badminton_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Badminton; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -389,6 +423,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IBadmintonActions instance)
@@ -399,6 +436,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IBadmintonActions instance)
@@ -508,6 +548,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnHit(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IFishJamActions
     {
