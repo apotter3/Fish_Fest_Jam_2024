@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,15 +29,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         
-        
     }
-    
 
     private void OnEnable()
     {
         playerControls.Enable();
-        
-
     }
 
     private void OnDisable()
@@ -46,34 +43,20 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SubscribeInputs()
-    {//Make sure i'm using action maps properly
+    {
         playerControls ??= new PlayerControls();
         playerControls.Badminton.Move.performed += MoveInput;
         playerControls.Badminton.Move.canceled += MoveInput;
         playerControls.Badminton.Hit.started += HitInput;
-        playerControls.FishJam.Key1.started += QPressed;
-        playerControls.FishJam.Key2.started += WPressed;
-        playerControls.FishJam.Key3.started += EPressed;
-        playerControls.FishJam.Key4.started += RPressed;
     }
 
 
     public void UnsubscribeInputs()
     {
-        playerControls ??= new PlayerControls();
+        if (playerControls == null) throw new NullReferenceException();
         playerControls.Badminton.Move.performed -= MoveInput;
-        playerControls.Badminton.Move.canceled += MoveInput;
         playerControls.Badminton.Hit.started -= HitInput;
-        playerControls.FishJam.Key1.started -= QPressed;
-        playerControls.FishJam.Key2.started -= WPressed;
-        playerControls.FishJam.Key3.started -= EPressed;
-        playerControls.FishJam.Key4.started -= RPressed;
     }
-
-    /*void SwapActionMap(InputAction.CallbackContext context)
-    {
-        playerInput.SwitchCurrentActionMap();
-    }*/
 
     public void MoveInput(InputAction.CallbackContext context)
     {
@@ -87,21 +70,5 @@ public class PlayerController : MonoBehaviour
     public void HitInput(InputAction.CallbackContext context)
     {
         Debug.Log("Hit");
-    }
-    void QPressed(InputAction.CallbackContext context)
-    {
-        Debug.Log("Q");
-    }
-    void WPressed(InputAction.CallbackContext context)
-    {
-        Debug.Log("W");
-    }
-    void EPressed(InputAction.CallbackContext context)
-    {
-        Debug.Log("E");
-    }
-    void RPressed(InputAction.CallbackContext context)
-    {
-        Debug.Log("R");
     }
 }
