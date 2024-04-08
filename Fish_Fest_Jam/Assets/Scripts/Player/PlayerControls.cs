@@ -53,7 +53,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/Spacebar"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard_P1"",
+                    ""action"": ""Hit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d673baf-871b-45bc-8f63-9d1a258c5f8e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
                     ""action"": ""Hit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -75,7 +86,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/A"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -86,7 +97,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/D"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -97,7 +108,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/W"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -108,7 +119,62 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/S"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""b9173eff-d0d9-445a-8478-cdb93f61e914"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""009d823f-1661-4fbe-aad5-0c4f907e3597"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7b639300-e5f1-45fa-9d6c-e2c9437623d0"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7df656e9-d27e-4c4d-9cd7-3903891dbdb5"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""83bd8a25-7312-4fa4-a57d-ffe7e0abd32f"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard_P2"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -163,7 +229,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/Q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Key1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -174,7 +240,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/W"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Key2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -185,7 +251,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/E"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Key3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -196,7 +262,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""Keyboard/R"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
+                    ""groups"": ""Keyboard_P1"",
                     ""action"": ""Key4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -206,8 +272,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Keyboard"",
-            ""bindingGroup"": ""Keyboard"",
+            ""name"": ""Keyboard_P1"",
+            ""bindingGroup"": ""Keyboard_P1"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Keyboard_P2"",
+            ""bindingGroup"": ""Keyboard_P2"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -409,13 +486,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public FishJamActions @FishJam => new FishJamActions(this);
-    private int m_KeyboardSchemeIndex = -1;
-    public InputControlScheme KeyboardScheme
+    private int m_Keyboard_P1SchemeIndex = -1;
+    public InputControlScheme Keyboard_P1Scheme
     {
         get
         {
-            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
-            return asset.controlSchemes[m_KeyboardSchemeIndex];
+            if (m_Keyboard_P1SchemeIndex == -1) m_Keyboard_P1SchemeIndex = asset.FindControlSchemeIndex("Keyboard_P1");
+            return asset.controlSchemes[m_Keyboard_P1SchemeIndex];
+        }
+    }
+    private int m_Keyboard_P2SchemeIndex = -1;
+    public InputControlScheme Keyboard_P2Scheme
+    {
+        get
+        {
+            if (m_Keyboard_P2SchemeIndex == -1) m_Keyboard_P2SchemeIndex = asset.FindControlSchemeIndex("Keyboard_P2");
+            return asset.controlSchemes[m_Keyboard_P2SchemeIndex];
         }
     }
     public interface IBadmintonActions
